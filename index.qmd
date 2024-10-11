@@ -6,7 +6,10 @@ about:
   links: 
     - icon: github
       text: Github
-      href: https://github.com
+      href: https://github.com/Trizzole
+    - icon: linkedin
+      text: Linkedin
+      href: https://www.linkedin.com/in/thomas-reinke-454437196
 ---
 
 Thomas Reinke is a PhD student studying statistics at Baylor University.
@@ -18,4 +21,10 @@ BS in Mathematics | Aug 2019 - May 2023
 
 ## Experience
 
-Business | Job Title | date - date
+Blue Cross and Blue Shield of Alabama | Healthcare Analytics Intern | June 2022 - Aug 2022
+
+AutoTec | Data Analyst Intern | Feb 2022 - Apr 2022
+
+## Languages & Software
+
+R/Rstudio, Git/Github, Docker, SQL, Python, Java, AWS, Tableau, Toad
