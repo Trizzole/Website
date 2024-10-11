@@ -1,8 +1,8 @@
 ---
-title: "About"
+title: "Second page"
 ---
 
-About this site
+A second page
 
 ```{r}
 1 + 1
