@@ -1,0 +1,4 @@
+- source: project
+  quarto-pub:
+    - id: 50771579-6d17-46db-a9bf-d8bf4eec33eb
+      url: 'https://thomasqmd.quarto.pub/website'
