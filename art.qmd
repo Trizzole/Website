@@ -3,7 +3,153 @@ title: "Art"
 code-fold: true
 ---
 
-# Generative art using R
+# Art using R
 
-Inspiration from [Danielle Navarro](https://blog.djnavarro.net/#category=Art)
+```{r}
+#| echo: false
+#| message: false
+#| warning: false
+#| include: false
+library(tidyverse)
+library(scico)
+library(ambient)
+library(particles)
+library(ggforce)
+library(ggraph)
+library(tidygraph)
+library(RColorBrewer)
+library(deldir)
+knitr::opts_chunk$set(warning = FALSE, results = "hide")
+```
 
+```{r}
+#| include: false
+theme_void2 <- \() {
+  theme_void() %+replace% theme(
+    plot.background = element_rect(fill = "#ecf0f1", color = NA),
+    legend.background = element_rect(fill = "#ecf0f1", color = NA)
+  )
+}
+theme_set(theme_void2())
+```
+
+
+```{r}
+#| echo: false
+#| eval: false
+#| code-fold: false
+circles <- data.frame(
+  x0 = rep(1:3, 3),
+  y0 = rep(1:3, each = 3),
+  r = seq(0.1, 1, length.out = 9)
+)
+
+# Behold some circles
+ggplot() +
+  geom_circle(aes(x0 = x0, y0 = y0, r = r, fill = r), data = circles, show.legend = F)
+```
+
+## Grid of shapes
+
+```{r}
+make_df <- \(n = 6) {
+  expand.grid(x = seq(0, 1, length.out = n),
+         y = seq(0, 1, length.out = n)) |>
+    tibble(
+      color = sample(1:6, n^2, replace = TRUE),
+      stroke = sample(5:9, n^2, replace = TRUE),
+      shape = sample(c(7:10, 12:13), n^2, replace = TRUE)
+    )
+}
+
+draw <- \(seed = 1) {
+  set.seed(seed)
+  make_df() |>
+    ggplot(aes(
+      x = x,
+      y = y,
+      color = factor(color)
+    )) +
+    geom_point(aes(
+      size = 1,
+      stroke = stroke,
+      shape = factor(shape)
+    ), show.legend = F) +
+    coord_cartesian(xlim = c(-.25, 1.25), ylim = c(-.25, 1.25)) +
+    scale_color_brewer(palette = "Set1")
+}
+
+#map(1:5, draw)
+draw(5)
+```
+
+## geom_delaunay
+
+[Delaunay Triangulation](https://en.wikipedia.org/wiki/Delaunay_triangulation)
+
+```{r}
+del_df <- \(n = 10){
+  expand.grid(x = seq(0, 1, length.out = n),
+              y = seq(0, 1, length.out = n)) |>
+    tibble( 
+      fill = sample(letters[1:3], n^2, replace = TRUE)
+    )
+}
+
+del_df() |>
+  ggplot(aes(x, y)) +
+  geom_delaunay_segment2(aes(color = fill, group = -1),
+                         size = 2,
+                         lineend = "round")
+
+```
+
+```{r}
+del_df2 <- \(n = 50, groups = 3, prob = NULL){
+  tibble(
+  x = sample(1:n, size = n %/% 2, prob = prob),
+  y = sample(1:n, size = n %/% 2, prob = prob),
+  fill = sample(letters[1:groups], size = n %/% 2, replace = TRUE)
+  )
+}
+
+make_del2 <- \(seed = 1) {
+  set.seed(seed)
+  del_df2() |>
+    ggplot(aes(x, y)) +
+    geom_delaunay_segment2(aes(color = fill, group = -1),
+                           size = 2,
+                           lineend = "round")
+}
+
+make_del2(2)
+```
+
+## geom_voronoi
+
+[Voronoi Diagram](https://en.wikipedia.org/wiki/Voronoi_diagram)
+
+```{r}
+vor_df <- \(n = 50, groups = 3, prob = NULL) {
+  tibble(
+    x = sample(1:n, size = n %/% 2, prob = prob),
+    y = sample(1:n, size = n %/% 2, prob = prob),
+    fill = sample(letters[1:groups], size = n %/% 2, replace = TRUE)
+  )
+}
+
+make_vor <- \(seed = 1) {
+  set.seed(seed)
+  vor_df() |>
+    ggplot(aes(x, y, group = -1L)) +
+    geom_voronoi_tile(aes(fill = fill)) +
+    geom_voronoi_segment() +
+    geom_text(
+      aes(label = after_stat(nsides), size = after_stat(vorarea)),
+      stat = 'delvor_summary',
+      switch.centroid = TRUE
+    )
+}
+
+make_vor(1)
+```
