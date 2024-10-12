@@ -14,8 +14,8 @@ library(tidyverse)
 library(scico)
 library(ambient)
 library(particles)
-library(ggforce)
-library(ggraph)
+#library(ggforce)
+#library(ggraph)
 library(tidygraph)
 library(RColorBrewer)
 library(deldir)
@@ -31,6 +31,7 @@ theme_void2 <- \() {
   )
 }
 theme_set(theme_void2())
+background <- "#ecf0f1"
 ```
 
 
@@ -98,9 +99,12 @@ del_df <- \(n = 10){
 
 del_df() |>
   ggplot(aes(x, y)) +
-  geom_delaunay_segment2(aes(color = fill, group = -1),
-                         size = 2,
-                         lineend = "round")
+  ggforce::geom_delaunay_segment2(
+    aes(color = fill, group = -1),
+    size = 2,
+    lineend = "round",
+    show.legend = FALSE
+  )
 
 ```
 
@@ -117,9 +121,12 @@ make_del2 <- \(seed = 1) {
   set.seed(seed)
   del_df2() |>
     ggplot(aes(x, y)) +
-    geom_delaunay_segment2(aes(color = fill, group = -1),
-                           size = 2,
-                           lineend = "round")
+    ggforce::geom_delaunay_segment2(
+      aes(color = fill, group = -1),
+      size = 2,
+      lineend = "round",
+      show.legend = FALSE
+    )
 }
 
 make_del2(2)
@@ -142,14 +149,10 @@ make_vor <- \(seed = 1) {
   set.seed(seed)
   vor_df() |>
     ggplot(aes(x, y, group = -1L)) +
-    geom_voronoi_tile(aes(fill = fill)) +
-    geom_voronoi_segment() +
-    geom_text(
-      aes(label = after_stat(nsides), size = after_stat(vorarea)),
-      stat = 'delvor_summary',
-      switch.centroid = TRUE
-    )
+    ggforce::geom_voronoi_tile(aes(fill = fill), show.legend = FALSE) +
+    ggforce::geom_voronoi_segment(color = background)
 }
 
 make_vor(1)
 ```
+
