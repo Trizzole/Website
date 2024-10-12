@@ -10,6 +10,9 @@ about:
     - icon: linkedin
       text: Linkedin
       href: https://www.linkedin.com/in/thomas-reinke-454437196
+    - icon: mailbox
+      text: Email
+      href: thomas_reinke1@baylor.edu
 ---
 
 Thomas Reinke is a PhD student studying statistics at Baylor University.
