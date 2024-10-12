@@ -7,13 +7,6 @@
     "text": "Thomas Reinke is a PhD student studying statistics at Baylor University."
   },
   {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "About",
-    "section": "",
-    "text": "About this site\n\n1 + 1\n\n[1] 2"
-  },
-  {
     "objectID": "index.html#education",
     "href": "index.html#education",
     "title": "Thomas Reinke",
@@ -33,5 +26,12 @@
     "title": "Thomas Reinke",
     "section": "Languages & Software",
     "text": "Languages & Software\nR/Rstudio, Git/Github, Docker, SQL, Python, Java, AWS, Tableau, Toad"
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "Second page",
+    "section": "",
+    "text": "A second page\n\n1 + 1\n\n[1] 2"
   }
 ]
