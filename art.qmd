@@ -207,3 +207,36 @@ r_df() |>
   scale_fill_viridis_d(option = "turbo") + 
   coord_equal()
 ```
+
+## Bubbles
+
+```{r}
+p_df <- \(n = 25, groups = 5, prob = NULL) {
+  tibble(
+    x = sample(1:(n * 2), size = n, prob = prob),
+    y = sample(1:(n * 2), size = n, prob = prob),
+    fill = sample(letters[1:groups], size = n, replace = TRUE),
+    size = sample(30:50, size = n, replace = TRUE)
+  )
+}
+
+bubbles <- \(seed = 1, number_of_bubbles = 25) {
+  set.seed(seed)
+  p_df(number_of_bubbles) |>
+    ggplot(aes(x, y)) +
+    geom_point(
+      aes(
+        fill = fill,
+        color = fill,
+        size = size
+      ),
+      stroke = .1,
+      shape = 21,
+      alpha = .35,
+      show.legend = FALSE
+    ) +
+    scale_size_identity()
+}
+
+bubbles(seed = 5)
+```
