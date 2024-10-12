@@ -27,7 +27,9 @@ knitr::opts_chunk$set(warning = FALSE, results = "hide")
 theme_void2 <- \() {
   theme_void() %+replace% theme(
     plot.background = element_rect(fill = "#ecf0f1", color = NA),
-    legend.background = element_rect(fill = "#ecf0f1", color = NA)
+    legend.background = element_rect(fill = "#ecf0f1", color = NA),
+    panel.background = element_rect(fill = "#ecf0f1", color = NA),
+    strip.background = element_rect(fill = "#ecf0f1", color = NA)
   )
 }
 theme_set(theme_void2())
@@ -156,3 +158,52 @@ make_vor <- \(seed = 1) {
 make_vor(1)
 ```
 
+## geom_raster
+
+```{r}
+#| echo: false
+func <- \(vec) {
+  n <- sqrt(length(vec))
+  s <- vector(mode = "numeric", length = 0)
+  
+  mat <- matrix(vec, nrow = n, byrow = TRUE)
+  
+  for (i in (1:n)) {
+    s <- c(s, matricks::antidiag(as.matrix(mat[1:i, 1:i])))
+  }
+  for (i in (1:(n - 1))) {
+    s <- c(s, matricks::antidiag(as.matrix(mat[(i + 1):n, (i + 1):n])))
+  }
+  s 
+  # |> matrix(nrow = n, byrow = FALSE)
+  # %*% matricks::antidiag(1, nrow = n, ncol = n)
+}
+```
+
+```{r}
+#| fig-asp: 1
+r_df <- \(n = 501){
+  expand.grid(x = seq(0, 1, length.out = n),
+              y = seq(0, 1, length.out = n)) |>
+    tibble( 
+      fill1 = 1:n^2,
+      fill2 = func(c(1:n^2))
+    )
+}
+
+r_df() |>
+  ggplot(aes(x, y)) +
+  geom_raster(aes(fill = factor(fill1)),
+              interpolate = TRUE,
+              show.legend = FALSE) + 
+  scale_fill_viridis_d(option = "turbo") + 
+  coord_equal()
+
+r_df() |>
+  ggplot(aes(x, y)) +
+  geom_raster(aes(fill = factor(fill2)),
+              interpolate = TRUE,
+              show.legend = FALSE) + 
+  scale_fill_viridis_d(option = "turbo") + 
+  coord_equal()
+```
