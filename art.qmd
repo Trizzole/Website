@@ -1,0 +1,9 @@
+---
+title: "Art"
+code-fold: true
+---
+
+# Generative art using R
+
+Inspiration from [Danielle Navarro](https://blog.djnavarro.net/#category=Art)
+

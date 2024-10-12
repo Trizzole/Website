@@ -1,9 +1,0 @@
----
-title: "Second page"
----
-
-A second page
-
-```{r}
-1 + 1
-```

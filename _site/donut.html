@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Thomas Reinke – Menu</title>
+<title>Donuts! – Menu</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -19,6 +19,40 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -34,6 +68,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
@@ -66,6 +101,8 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<script type="module" src="site_libs/quarto-ojs/quarto-ojs-runtime.js"></script>
+<link href="site_libs/quarto-ojs/quarto-ojs.css" rel="stylesheet">
 
 
 <link rel="stylesheet" href="styles.css">
@@ -89,12 +126,12 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="./index.html" aria-current="page"> 
+    <a class="nav-link" href="./index.html"> 
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./art.html"> 
-<span class="menu-text">Art</span></a>
+    <a class="nav-link active" href="./donut.html" aria-current="page"> 
+<span class="menu-text">Donuts!</span></a>
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
@@ -110,61 +147,164 @@ ul.task-list li input[type="checkbox"] {
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">On this page</h2>
+   
   <ul>
-  <li><a href="#education" id="toc-education" class="nav-link active" data-scroll-target="#education">Education</a></li>
-  <li><a href="#experience" id="toc-experience" class="nav-link" data-scroll-target="#experience">Experience</a></li>
-  <li><a href="#languages-software" id="toc-languages-software" class="nav-link" data-scroll-target="#languages-software">Languages &amp; Software</a></li>
+  <li><a href="#ojs-p5-example" id="toc-ojs-p5-example" class="nav-link active" data-scroll-target="#ojs-p5-example">OJS &amp; P5 Example</a>
+  <ul class="collapse">
+  <li><a href="#donut-1" id="toc-donut-1" class="nav-link" data-scroll-target="#donut-1">Donut 1</a></li>
+  <li><a href="#donut-2" id="toc-donut-2" class="nav-link" data-scroll-target="#donut-2">Donut 2</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
-<div class="quarto-about-trestles">
-  <div class="about-entity">
-    <img src="T.png" class="about-image
-  rounded " style="width: 20em;">
+<main class="content page-columns page-full" id="quarto-document-content">
+
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Thomas Reinke</h1>
+<h1 class="title">Donuts!</h1>
 </div>
+
+
+
 <div class="quarto-title-meta">
+
+    
+  
+    
   </div>
+  
+
+
 </header>
-    <div class="about-links">
-  <a href="https://github.com/Trizzole" class="about-link" rel="" target="">
-    <i class="bi bi-github"></i>
-     <span class="about-link-text">Github</span>
-  </a>
-  <a href="https://www.linkedin.com/in/thomas-reinke-454437196" class="about-link" rel="" target="">
-    <i class="bi bi-linkedin"></i>
-     <span class="about-link-text">Linkedin</span>
-  </a>
-  <a href="/thomas_reinke1@baylor.edu" class="about-link" rel="" target="">
-    <i class="bi bi-mailbox"></i>
-     <span class="about-link-text">Email</span>
-  </a>
+
+
+<section id="ojs-p5-example" class="level1 page-columns page-full">
+<h1>OJS &amp; P5 Example</h1>
+<p>Example from <a href="https://blog.djnavarro.net/posts/2023-01-14_p5js/">Danielle Navarro</a></p>
+<p>Require p5</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1" data-startfrom="13" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 12;"><span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>P5 <span class="op">=</span> <span class="pp">require</span>(<span class="st">"p5"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div id="ojs-cell-1" data-nodetype="declaration">
+
 </div>
-  </div>
-  <div class="about-contents"><main class="content" id="quarto-document-content">
-
-<p>Thomas Reinke is a PhD student studying statistics at Baylor University.</p>
-<section id="education" class="level2">
-<h2 data-anchor-id="education">Education</h2>
-<p>Samford University | Birmingham, AL BS in Mathematics | Aug 2019 - May 2023</p>
-</section>
-<section id="experience" class="level2">
-<h2 data-anchor-id="experience">Experience</h2>
-<p>Blue Cross and Blue Shield of Alabama | Healthcare Analytics Intern | June 2022 - Aug 2022</p>
-<p>AutoTec | Data Analyst Intern | Feb 2022 - Apr 2022</p>
-</section>
-<section id="languages-software" class="level2">
-<h2 data-anchor-id="languages-software">Languages &amp; Software</h2>
-<p>R/Rstudio, Git/Github, Docker, SQL, Python, Java, AWS, Tableau, Toad</p>
-
-
-</section>
-</main></div>
 </div>
- <!-- /main -->
+</div>
+<p>Create function to draw donuts</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb2" data-startfrom="19" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 18;"><span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span><span class="op">*</span> <span class="fu">createSketch</span>(sketch) {</span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> element <span class="op">=</span> DOM<span class="op">.</span><span class="fu">element</span>(<span class="st">'div'</span>)<span class="op">;</span></span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>  <span class="kw">yield</span> element<span class="op">;</span></span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> instance <span class="op">=</span> <span class="kw">new</span> <span class="fu">P5</span>(sketch<span class="op">,</span> element<span class="op">,</span> <span class="kw">true</span>)<span class="op">;</span></span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>  <span class="cf">try</span> {</span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>    <span class="cf">while</span> (<span class="kw">true</span>) {</span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>      <span class="kw">yield</span> element<span class="op">;</span></span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">finally</span> {</span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a>    instance<span class="op">.</span><span class="fu">remove</span>()<span class="op">;</span></span>
+<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display">
+<div id="ojs-cell-2" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+<section id="donut-1" class="level2">
+<h2 class="anchored" data-anchor-id="donut-1">Donut 1</h2>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb3" data-startfrom="36" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 35;"><span id="cb3-36"><a href="#cb3-36" aria-hidden="true" tabindex="-1"></a><span class="fu">createSketch</span>(s <span class="kw">=&gt;</span> {</span>
+<span id="cb3-37"><a href="#cb3-37" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb3-38"><a href="#cb3-38" aria-hidden="true" tabindex="-1"></a>    s<span class="op">.</span><span class="at">setup</span> <span class="op">=</span> <span class="kw">function</span>() {</span>
+<span id="cb3-39"><a href="#cb3-39" aria-hidden="true" tabindex="-1"></a>      s<span class="op">.</span><span class="fu">createCanvas</span>(<span class="dv">500</span><span class="op">,</span> <span class="dv">500</span>)<span class="op">;</span></span>
+<span id="cb3-40"><a href="#cb3-40" aria-hidden="true" tabindex="-1"></a>      s<span class="op">.</span><span class="fu">background</span>(<span class="dv">0</span>)<span class="op">;</span></span>
+<span id="cb3-41"><a href="#cb3-41" aria-hidden="true" tabindex="-1"></a>      s<span class="op">.</span><span class="fu">noStroke</span>()<span class="op">;</span></span>
+<span id="cb3-42"><a href="#cb3-42" aria-hidden="true" tabindex="-1"></a>    }<span class="op">;</span></span>
+<span id="cb3-43"><a href="#cb3-43" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb3-44"><a href="#cb3-44" aria-hidden="true" tabindex="-1"></a>    s<span class="op">.</span><span class="at">draw</span> <span class="op">=</span> <span class="kw">function</span>() {</span>
+<span id="cb3-45"><a href="#cb3-45" aria-hidden="true" tabindex="-1"></a>      s<span class="op">.</span><span class="fu">translate</span>(</span>
+<span id="cb3-46"><a href="#cb3-46" aria-hidden="true" tabindex="-1"></a>        <span class="dv">100</span> <span class="op">*</span> s<span class="op">.</span><span class="fu">cos</span>(s<span class="op">.</span><span class="fu">millis</span>() <span class="op">*</span> <span class="op">.</span><span class="bn">001</span> <span class="op">*</span> s<span class="op">.</span><span class="at">PI</span>)<span class="op">,</span></span>
+<span id="cb3-47"><a href="#cb3-47" aria-hidden="true" tabindex="-1"></a>        <span class="dv">100</span> <span class="op">*</span> s<span class="op">.</span><span class="fu">sin</span>(s<span class="op">.</span><span class="fu">millis</span>() <span class="op">*</span> <span class="op">.</span><span class="bn">001</span> <span class="op">*</span> s<span class="op">.</span><span class="at">PI</span>)<span class="op">,</span></span>
+<span id="cb3-48"><a href="#cb3-48" aria-hidden="true" tabindex="-1"></a>      )<span class="op">;</span></span>
+<span id="cb3-49"><a href="#cb3-49" aria-hidden="true" tabindex="-1"></a>      <span class="cf">if</span> (s<span class="op">.</span><span class="fu">random</span>(<span class="dv">0</span><span class="op">,</span> <span class="dv">1</span>) <span class="op">&lt;</span> <span class="op">.</span><span class="dv">1</span>) {</span>
+<span id="cb3-50"><a href="#cb3-50" aria-hidden="true" tabindex="-1"></a>        s<span class="op">.</span><span class="fu">fill</span>(s<span class="op">.</span><span class="fu">random</span>(<span class="dv">0</span><span class="op">,</span> <span class="dv">255</span>))<span class="op">;</span></span>
+<span id="cb3-51"><a href="#cb3-51" aria-hidden="true" tabindex="-1"></a>      }</span>
+<span id="cb3-52"><a href="#cb3-52" aria-hidden="true" tabindex="-1"></a>      s<span class="op">.</span><span class="fu">circle</span>(<span class="dv">250</span><span class="op">,</span> <span class="dv">250</span><span class="op">,</span> <span class="dv">100</span>)<span class="op">;</span></span>
+<span id="cb3-53"><a href="#cb3-53" aria-hidden="true" tabindex="-1"></a>    }<span class="op">;</span></span>
+<span id="cb3-54"><a href="#cb3-54" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb3-55"><a href="#cb3-55" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb3-56"><a href="#cb3-56" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display">
+<div id="ojs-cell-3" data-nodetype="expression">
+
+</div>
+</div>
+</div>
+</section>
+<section id="donut-2" class="level2 page-columns page-full">
+<h2 class="anchored" data-anchor-id="donut-2">Donut 2</h2>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb4" data-startfrom="62" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 61;"><span id="cb4-62"><a href="#cb4-62" aria-hidden="true" tabindex="-1"></a><span class="fu">createSketch</span>(s <span class="kw">=&gt;</span> {</span>
+<span id="cb4-63"><a href="#cb4-63" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-64"><a href="#cb4-64" aria-hidden="true" tabindex="-1"></a>  s<span class="op">.</span><span class="at">setup</span> <span class="op">=</span> <span class="kw">function</span>() {</span>
+<span id="cb4-65"><a href="#cb4-65" aria-hidden="true" tabindex="-1"></a>    s<span class="op">.</span><span class="fu">createCanvas</span>(<span class="dv">746</span><span class="op">,</span> <span class="dv">746</span><span class="op">,</span> s<span class="op">.</span><span class="at">WEBGL</span>)<span class="op">;</span></span>
+<span id="cb4-66"><a href="#cb4-66" aria-hidden="true" tabindex="-1"></a>    s<span class="op">.</span><span class="fu">noStroke</span>()<span class="op">;</span></span>
+<span id="cb4-67"><a href="#cb4-67" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb4-68"><a href="#cb4-68" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-69"><a href="#cb4-69" aria-hidden="true" tabindex="-1"></a>  s<span class="op">.</span><span class="at">draw</span> <span class="op">=</span> <span class="kw">function</span>() {</span>
+<span id="cb4-70"><a href="#cb4-70" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-71"><a href="#cb4-71" aria-hidden="true" tabindex="-1"></a>    s<span class="op">.</span><span class="fu">background</span>(<span class="dv">0</span>)<span class="op">;</span></span>
+<span id="cb4-72"><a href="#cb4-72" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-73"><a href="#cb4-73" aria-hidden="true" tabindex="-1"></a>    <span class="kw">let</span> locX <span class="op">=</span> s<span class="op">.</span><span class="at">mouseX</span> <span class="op">-</span> s<span class="op">.</span><span class="at">height</span> <span class="op">/</span> <span class="dv">2</span><span class="op">;</span></span>
+<span id="cb4-74"><a href="#cb4-74" aria-hidden="true" tabindex="-1"></a>    <span class="kw">let</span> locY <span class="op">=</span> s<span class="op">.</span><span class="at">mouseY</span> <span class="op">-</span> s<span class="op">.</span><span class="at">width</span> <span class="op">/</span> <span class="dv">2</span><span class="op">;</span>  </span>
+<span id="cb4-75"><a href="#cb4-75" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb4-76"><a href="#cb4-76" aria-hidden="true" tabindex="-1"></a>    s<span class="op">.</span><span class="fu">ambientLight</span>(<span class="dv">60</span><span class="op">,</span> <span class="dv">60</span><span class="op">,</span> <span class="dv">60</span>)<span class="op">;</span></span>
+<span id="cb4-77"><a href="#cb4-77" aria-hidden="true" tabindex="-1"></a>    s<span class="op">.</span><span class="fu">pointLight</span>(<span class="dv">190</span><span class="op">,</span> <span class="dv">80</span><span class="op">,</span> <span class="dv">190</span><span class="op">,</span> locX<span class="op">,</span> locY<span class="op">,</span> <span class="dv">100</span>)<span class="op">;</span></span>
+<span id="cb4-78"><a href="#cb4-78" aria-hidden="true" tabindex="-1"></a>    s<span class="op">.</span><span class="fu">pointLight</span>(<span class="dv">80</span><span class="op">,</span> <span class="dv">80</span><span class="op">,</span> <span class="dv">190</span><span class="op">,</span> <span class="dv">0</span><span class="op">,</span> <span class="dv">0</span><span class="op">,</span> <span class="dv">100</span>)<span class="op">;</span></span>
+<span id="cb4-79"><a href="#cb4-79" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb4-80"><a href="#cb4-80" aria-hidden="true" tabindex="-1"></a>    s<span class="op">.</span><span class="fu">specularMaterial</span>(<span class="dv">255</span>)<span class="op">;</span></span>
+<span id="cb4-81"><a href="#cb4-81" aria-hidden="true" tabindex="-1"></a>    s<span class="op">.</span><span class="fu">rotateX</span>(s<span class="op">.</span><span class="at">frameCount</span> <span class="op">*</span> <span class="fl">0.01</span>)<span class="op">;</span></span>
+<span id="cb4-82"><a href="#cb4-82" aria-hidden="true" tabindex="-1"></a>    s<span class="op">.</span><span class="fu">rotateY</span>(s<span class="op">.</span><span class="at">frameCount</span> <span class="op">*</span> <span class="fl">0.01</span>)<span class="op">;</span></span>
+<span id="cb4-83"><a href="#cb4-83" aria-hidden="true" tabindex="-1"></a>    s<span class="op">.</span><span class="fu">torus</span>(<span class="dv">150</span><span class="op">,</span> <span class="dv">80</span><span class="op">,</span> <span class="dv">64</span><span class="op">,</span> <span class="dv">64</span>)<span class="op">;</span></span>
+<span id="cb4-84"><a href="#cb4-84" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb4-85"><a href="#cb4-85" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-86"><a href="#cb4-86" aria-hidden="true" tabindex="-1"></a>})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display">
+<div id="ojs-cell-4" data-nodetype="expression">
+
+</div>
+</div>
+</div>
+
+
+
+<div class="no-row-height column-margin column-container"><div class="">
+<p>Notice if you move the mouse around, the light source changes</p>
+</div></div></section>
+</section>
+
+</main> <!-- /main -->
+<script type="ojs-module-contents">
+eyJjb250ZW50cyI6W3sibWV0aG9kTmFtZSI6ImludGVycHJldCIsImNlbGxOYW1lIjoib2pzLWNlbGwtMSIsImlubGluZSI6ZmFsc2UsInNvdXJjZSI6IlA1ID0gcmVxdWlyZShcInA1XCIpXHJcbiJ9LHsibWV0aG9kTmFtZSI6ImludGVycHJldCIsImNlbGxOYW1lIjoib2pzLWNlbGwtMiIsImlubGluZSI6ZmFsc2UsInNvdXJjZSI6ImZ1bmN0aW9uKiBjcmVhdGVTa2V0Y2goc2tldGNoKSB7XHJcbiAgY29uc3QgZWxlbWVudCA9IERPTS5lbGVtZW50KCdkaXYnKTtcclxuICB5aWVsZCBlbGVtZW50O1xyXG4gIGNvbnN0IGluc3RhbmNlID0gbmV3IFA1KHNrZXRjaCwgZWxlbWVudCwgdHJ1ZSk7XHJcbiAgdHJ5IHtcclxuICAgIHdoaWxlICh0cnVlKSB7XHJcbiAgICAgIHlpZWxkIGVsZW1lbnQ7XHJcbiAgICB9XHJcbiAgfSBmaW5hbGx5IHtcclxuICAgIGluc3RhbmNlLnJlbW92ZSgpO1xyXG4gIH1cclxufVxyXG4ifSx7Im1ldGhvZE5hbWUiOiJpbnRlcnByZXQiLCJjZWxsTmFtZSI6Im9qcy1jZWxsLTMiLCJpbmxpbmUiOmZhbHNlLCJzb3VyY2UiOiJjcmVhdGVTa2V0Y2gocyA9PiB7XHJcbiAgXHJcbiAgICBzLnNldHVwID0gZnVuY3Rpb24oKSB7XHJcbiAgICAgIHMuY3JlYXRlQ2FudmFzKDUwMCwgNTAwKTtcclxuICAgICAgcy5iYWNrZ3JvdW5kKDApO1xyXG4gICAgICBzLm5vU3Ryb2tlKCk7XHJcbiAgICB9O1xyXG4gICAgXHJcbiAgICBzLmRyYXcgPSBmdW5jdGlvbigpIHtcclxuICAgICAgcy50cmFuc2xhdGUoXHJcbiAgICAgICAgMTAwICogcy5jb3Mocy5taWxsaXMoKSAqIC4wMDEgKiBzLlBJKSxcclxuICAgICAgICAxMDAgKiBzLnNpbihzLm1pbGxpcygpICogLjAwMSAqIHMuUEkpLFxyXG4gICAgICApO1xyXG4gICAgICBpZiAocy5yYW5kb20oMCwgMSkgPCAuMSkge1xyXG4gICAgICAgIHMuZmlsbChzLnJhbmRvbSgwLCAyNTUpKTtcclxuICAgICAgfVxyXG4gICAgICBzLmNpcmNsZSgyNTAsIDI1MCwgMTAwKTtcclxuICAgIH07XHJcbiAgICBcclxuICB9XHJcbilcclxuIn0seyJtZXRob2ROYW1lIjoiaW50ZXJwcmV0IiwiY2VsbE5hbWUiOiJvanMtY2VsbC00IiwiaW5saW5lIjpmYWxzZSwic291cmNlIjoiY3JlYXRlU2tldGNoKHMgPT4ge1xyXG5cclxuICBzLnNldHVwID0gZnVuY3Rpb24oKSB7XHJcbiAgICBzLmNyZWF0ZUNhbnZhcyg3NDYsIDc0Niwgcy5XRUJHTCk7XHJcbiAgICBzLm5vU3Ryb2tlKCk7XHJcbiAgfVxyXG5cclxuICBzLmRyYXcgPSBmdW5jdGlvbigpIHtcclxuXHJcbiAgICBzLmJhY2tncm91bmQoMCk7XHJcblxyXG4gICAgbGV0IGxvY1ggPSBzLm1vdXNlWCAtIHMuaGVpZ2h0IC8gMjtcclxuICAgIGxldCBsb2NZID0gcy5tb3VzZVkgLSBzLndpZHRoIC8gMjsgIFxyXG4gICAgXHJcbiAgICBzLmFtYmllbnRMaWdodCg2MCwgNjAsIDYwKTtcclxuICAgIHMucG9pbnRMaWdodCgxOTAsIDgwLCAxOTAsIGxvY1gsIGxvY1ksIDEwMCk7XHJcbiAgICBzLnBvaW50TGlnaHQoODAsIDgwLCAxOTAsIDAsIDAsIDEwMCk7XHJcbiAgXHJcbiAgICBzLnNwZWN1bGFyTWF0ZXJpYWwoMjU1KTtcclxuICAgIHMucm90YXRlWChzLmZyYW1lQ291bnQgKiAwLjAxKTtcclxuICAgIHMucm90YXRlWShzLmZyYW1lQ291bnQgKiAwLjAxKTtcclxuICAgIHMudG9ydXMoMTUwLCA4MCwgNjQsIDY0KTtcclxuICB9XHJcblxyXG59KVxyXG4ifV19
+</script>
+<script type="module">
+if (window.location.protocol === "file:") { alert("The OJS runtime does not work with file:// URLs. Please use a web server to view this document."); }
+window._ojs.paths.runtimeToDoc = "../..";
+window._ojs.paths.runtimeToRoot = "../..";
+window._ojs.paths.docToRoot = "";
+window._ojs.selfContained = false;
+window._ojs.runtime.interpretFromScriptTags();
+</script>
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -185,6 +325,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
   }
   toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
   const isCodeAnnotation = (el) => {
     for (const clz of el.classList) {
       if (clz.startsWith('code-annotation-')) {                     
