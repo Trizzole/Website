@@ -52,7 +52,7 @@ ggplot() +
   geom_circle(aes(x0 = x0, y0 = y0, r = r, fill = r), data = circles, show.legend = F)
 ```
 
-## Grid of shapes
+## Shapes
 
 ```{r}
 make_df <- \(n = 6) {
@@ -86,7 +86,32 @@ draw <- \(seed = 1) {
 draw(5)
 ```
 
-## geom_delaunay
+```{r}
+#| fig-asp: 1
+tribble(
+  ~x,  ~y,  ~color,  ~size,  ~shape,  ~stroke,
+  -1,   1,  "left",    20,        8,       10, 
+  1,    1, "right",    25,       10,       10,
+  0, -1.5, "mouth",    25,        9,       10,
+  0,    0,  "nose",    15,        2,       10     
+) |>
+  ggplot() +
+  geom_point(aes(
+    x = x,
+    y = y,
+    color = color,
+    size = size,
+    shape = shape,
+    stroke = stroke
+  ),
+  show.legend = FALSE) +
+  scale_size_identity() +
+  scale_shape_identity() +
+  scale_color_brewer(palette = "Pastel1") + 
+  coord_cartesian(xlim = c(-2, 2), ylim = c(-2, 2))
+```
+
+## Delaunay
 
 [Delaunay Triangulation](https://en.wikipedia.org/wiki/Delaunay_triangulation)
 
@@ -134,7 +159,7 @@ make_del2 <- \(seed = 1) {
 make_del2(2)
 ```
 
-## geom_voronoi
+## Voronoi
 
 [Voronoi Diagram](https://en.wikipedia.org/wiki/Voronoi_diagram)
 
@@ -158,7 +183,7 @@ make_vor <- \(seed = 1) {
 make_vor(1)
 ```
 
-## geom_raster
+## Raster
 
 ```{r}
 #| echo: false
