@@ -7,7 +7,10 @@ website:
     left:
       - href: index.qmd
         text: Home
-      - art.qmd
+      - href: art.qmd
+        text: Art in R
+      - href: Rexamples.qmd
+        text: R
   favicon: T.png
 
 format:

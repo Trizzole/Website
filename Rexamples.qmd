@@ -1,0 +1,9 @@
+---
+title: "R"
+code-fold: true
+lightbox: true
+---
+
+# Some fun examples in R
+
+## Coming Soon ...
