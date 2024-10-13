@@ -291,6 +291,40 @@ c(
   future_map(.f = \(fi) draw(fill = fi, interpolate = FALSE))
 ```
 
+### Raster with Distribution fill2
+
+```{r raster3}
+#| warning: false
+#| fig-asp: 1
+#| cache: true
+#| #| label: fig-rasterdist2
+#| fig-cap: 
+#|   - Fill is $\text{beta}(x,y)$
+#|   - Fill is $\text{weibull}(x,y)$
+#|   - Fill is $N(x, y^2)$
+
+plan(multisession)
+
+draw2 <- \(n = 1001, fill = 1:n^2, interpolate = TRUE) {
+  expand.grid(x = seq(-1, 1, length.out = n),
+              y = seq(-1, 1, length.out = n)) |>
+    tibble(fill = eval(fill)) |>
+    ggplot(aes(x, y)) +
+    geom_raster(aes(fill = factor(fill)),
+                interpolate = interpolate,
+                show.legend = FALSE) +
+    scale_fill_viridis_d(option = "turbo") +
+    coord_equal()
+}
+
+c(
+  quote(rbeta(n^2, abs(x), abs(y))),
+  quote(rweibull(n^2, abs(x), abs(y))),
+  quote(rnorm(n^2, x, y^2))
+) |>
+  future_map(.f = \(fi) draw2(fill = fi, interpolate = FALSE))
+```
+
 ## Bubbles
 
 ```{r}
