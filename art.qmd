@@ -1,6 +1,7 @@
 ---
 title: "Art"
 code-fold: true
+lightbox: true
 ---
 
 # Art using R
@@ -19,6 +20,7 @@ library(particles)
 library(tidygraph)
 library(RColorBrewer)
 library(deldir)
+library(furrr)
 knitr::opts_chunk$set(warning = FALSE, results = "hide")
 ```
 
@@ -55,6 +57,9 @@ ggplot() +
 ## Shapes
 
 ```{r}
+#| label: fig-shapes
+#| fig-cap: Simple Shape Art
+
 make_df <- \(n = 6) {
   expand.grid(x = seq(0, 1, length.out = n),
          y = seq(0, 1, length.out = n)) |>
@@ -88,6 +93,9 @@ draw(5)
 
 ```{r}
 #| fig-asp: 1
+#| label: fig-face
+#| fig-cap: Simple Shape Face
+
 tribble(
   ~x,  ~y,  ~color,  ~size,  ~shape,  ~stroke,
   -1,   1,  "left",    20,        8,       10, 
@@ -116,6 +124,9 @@ tribble(
 [Delaunay Triangulation](https://en.wikipedia.org/wiki/Delaunay_triangulation)
 
 ```{r}
+#| label: fig-delaunay
+#| fig-cap: Grid Delaunay
+
 del_df <- \(n = 10){
   expand.grid(x = seq(0, 1, length.out = n),
               y = seq(0, 1, length.out = n)) |>
@@ -128,7 +139,7 @@ del_df() |>
   ggplot(aes(x, y)) +
   ggforce::geom_delaunay_segment2(
     aes(color = fill, group = -1),
-    size = 2,
+    linewidth = 2,
     lineend = "round",
     show.legend = FALSE
   )
@@ -136,6 +147,9 @@ del_df() |>
 ```
 
 ```{r}
+#| label: fig-delaunay2
+#| fig-cap: Random Delaunay
+
 del_df2 <- \(n = 50, groups = 3, prob = NULL){
   tibble(
   x = sample(1:n, size = n %/% 2, prob = prob),
@@ -164,6 +178,9 @@ make_del2(2)
 [Voronoi Diagram](https://en.wikipedia.org/wiki/Voronoi_diagram)
 
 ```{r}
+#| label: fig-voronoi
+#| fig-cap: Simple Voronoi Diagram
+
 vor_df <- \(n = 50, groups = 3, prob = NULL) {
   tibble(
     x = sample(1:n, size = n %/% 2, prob = prob),
@@ -205,37 +222,81 @@ func <- \(vec) {
 }
 ```
 
-```{r}
+```{r raster1}
 #| fig-asp: 1
-r_df <- \(n = 501){
+#| cache: true
+#| label: fig-raster
+#| fig-cap: 
+#|   - Fill is sequential from 1 to $n^2$
+#|   - Fill is sum $x + y$
+#|   - Fill is product $x \times y$
+#|   - Fill is quotient $x / y$
+#|   - Fill is permuted sequence from 1 to $n^2$
+
+plan(multisession)
+
+draw <- \(n = 1001, fill = 1:n^2, interpolate = TRUE) {
   expand.grid(x = seq(0, 1, length.out = n),
               y = seq(0, 1, length.out = n)) |>
-    tibble( 
-      fill1 = 1:n^2,
-      fill2 = func(c(1:n^2))
-    )
+    tibble(fill = eval(fill)) |>
+    ggplot(aes(x, y)) +
+    geom_raster(aes(fill = factor(fill)),
+                interpolate = interpolate,
+                show.legend = FALSE) +
+    scale_fill_viridis_d(option = "turbo") +
+    coord_equal()
 }
 
-r_df() |>
-  ggplot(aes(x, y)) +
-  geom_raster(aes(fill = factor(fill1)),
-              interpolate = TRUE,
-              show.legend = FALSE) + 
-  scale_fill_viridis_d(option = "turbo") + 
-  coord_equal()
+c(
+  quote(1:n ^ 2),
+  quote(x + y),
+  quote(x * y),
+  quote(x / y),
+  quote(func(c(1:n ^ 2)))
+) |>
+  future_map(.f = \(fi) draw(fill = fi))
+```
 
-r_df() |>
-  ggplot(aes(x, y)) +
-  geom_raster(aes(fill = factor(fill2)),
-              interpolate = TRUE,
-              show.legend = FALSE) + 
-  scale_fill_viridis_d(option = "turbo") + 
-  coord_equal()
+## Raster with Distribution fill
+
+```{r raster2}
+#| warning: false
+#| fig-asp: 1
+#| cache: true
+#| #| label: fig-rasterdist
+#| fig-cap: 
+#|   - Fill is $\text{beta}(x,y)$
+#|   - Fill is $\text{weibull}(x,y)$
+#|   - Fill is $N(x, y)$
+
+plan(multisession)
+
+draw <- \(n = 1001, fill = 1:n^2, interpolate = TRUE) {
+  expand.grid(x = seq(0, 1, length.out = n),
+              y = seq(0, 1, length.out = n)) |>
+    tibble(fill = eval(fill)) |>
+    ggplot(aes(x, y)) +
+    geom_raster(aes(fill = factor(fill)),
+                interpolate = interpolate,
+                show.legend = FALSE) +
+    scale_fill_viridis_d(option = "turbo") +
+    coord_equal()
+}
+
+c(
+  quote(rbeta(n^2, x, y)),
+  quote(rweibull(n^2, x, y)),
+  quote(rnorm(n^2, x, y))
+) |>
+  future_map(.f = \(fi) draw(fill = fi, interpolate = FALSE))
 ```
 
 ## Bubbles
 
 ```{r}
+#| label: fig-bubbles
+#| fig-cap: Randomly placed, colored, and sized bubbles
+
 p_df <- \(n = 25, groups = 5, prob = NULL) {
   tibble(
     x = sample(1:(n * 2), size = n, prob = prob),
@@ -271,6 +332,9 @@ bubbles(seed = 5)
 
 ```{r}
 #| fig-asp: 1
+#| label: fig-circles
+#| fig-cap: Paired overlapping circles
+
 circles2 <- \(seed = 1, nrows = 3, ncols = 3) {
   set.seed(seed)
   expand.grid(x = 1, y = 1) |>
