@@ -3,6 +3,8 @@ project:
 
 website:
   title: "Menu"
+  description: "Personal Website"
+  image: T.png
   navbar:
     left:
       - href: index.qmd
