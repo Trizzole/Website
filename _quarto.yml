@@ -14,6 +14,11 @@ website:
       - href: Rexamples.qmd
         text: R
   favicon: T.png
+  page-footer:
+    center: 
+      - text: "License"
+        href: license.md
+    background: "#ecf0f1"
 
 format:
   html:
