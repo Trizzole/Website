@@ -20,14 +20,14 @@ Thomas Reinke is a PhD student studying statistics at Baylor University.
 ## Education
 
 Samford University | Birmingham, AL | \
-BS in Mathematics | Aug 2019 - May 2023
+BS in Mathematics | *Aug 2019 - May 2023*
 
 ## Experience
 
 Blue Cross and Blue Shield of Alabama | \
-Healthcare Analytics Intern | June 2022 - Aug 2022
+Healthcare Analytics Intern | *June 2022 - Aug 2022*
 
-AutoTec | Data Analyst Intern | Feb 2022 - Apr 2022
+AutoTec | Data Analyst Intern | *Feb 2022 - Apr 2022*
 
 ## Languages & Software
 
